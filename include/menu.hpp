@@ -4,6 +4,7 @@
 #include <ncurses.h>
 #include <vector>
 #include <string>
+#include <stdexcept>
 
 class Menu {
     public:

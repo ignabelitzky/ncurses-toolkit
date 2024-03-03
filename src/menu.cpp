@@ -86,6 +86,10 @@ void Menu::calculate_window_dimensions() {
 
     start_y = (maxy - height) / 2;
     start_x = (maxx - width) / 2;
+    if(maxy < height || maxx < width) {
+        endwin();
+        throw std::runtime_error("Screen is too small to display the menu");
+    }
 }
 
 int Menu::longest_menu_item() {
