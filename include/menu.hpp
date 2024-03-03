@@ -12,9 +12,14 @@ class Menu {
         void print_menu();
         std::string menu_navigation();
     private:
+        const int MENU_ITEM_HEIGHT_FACTOR = 2;
+        const int MENU_ITEM_PADDING = 10;
         WINDOW *menuWin;
         std::vector<std::string> menuItems;
         int selectedItem;
+        int height, width, start_y, start_x;
+        void calculate_window_dimensions();
+        int longest_menu_item();
 };
 
 #endif
