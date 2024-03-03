@@ -1,4 +1,7 @@
-# ncurses-toolkit for C++
+# nCurses Toolkit for C++
+[![License](https://shields.io/badge/License-GNU%20General%20Public%20License%20v3.0-green)](LICENSE)
+[![nCurses](https://img.shields.io/badge/nCurses-6.4-red.svg)](https://en.wikipedia.org/wiki/Ncurses/)
+[![Linux](https://img.shields.io/badge/Platform-Linux-blue.svg)](https://www.linux.org/)
 
 ## Introduction
 Welcome to the ncurses-toolkit for C++ repository! This project aims to provide a versatile and easy-to-use toolkit for building text-based user interfaces (TUIs) in C++ using the ncurses library. Designed specifically for Linux environments, this toolkit empowers developers to create dynamic and interactive console applications with ease.
