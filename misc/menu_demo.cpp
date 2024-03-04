@@ -10,7 +10,7 @@ int main() {
         std::string title = "Main Menu";
         try {
             Menu* menu = new Menu(title, items);
-            std::string selection = menu->menu_navigation();
+            std::string selection = menu->show();
             delete menu;
             std::cout << "You selected: " << selection << std::endl;
         } catch(std::runtime_error &e) {
@@ -19,7 +19,7 @@ int main() {
     } else if(choice == 2) {
         try {
             Menu* menu = new Menu(items);
-            std::string selection = menu->menu_navigation();
+            std::string selection = menu->show();
             delete menu;
             std::cout << "You selected: " << selection << std::endl;
         } catch(std::runtime_error &e) {

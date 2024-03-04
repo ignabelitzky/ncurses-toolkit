@@ -1,29 +1,11 @@
 #include "../include/menu.hpp"
 
 Menu::Menu(std::vector<std::string> items) {
-    initscr();
-    noecho();
-    curs_set(0);
-    menuItems = items;
-    selectedItem = 0;
-    winTitle = "";
-    calculate_window_dimensions();
-    menuWin = newwin(height, width, start_y, start_x);
-    keypad(menuWin, TRUE);
-    box(menuWin, 0, 0);
+    initialise("", items);
 }
 
 Menu::Menu(std::string title, std::vector<std::string> items) {
-    initscr();
-    noecho();
-    curs_set(0);
-    menuItems = items;
-    selectedItem = 0;
-    winTitle = title;
-    calculate_window_dimensions();
-    menuWin = newwin(height, width, start_y, start_x);
-    keypad(menuWin, TRUE);
-    box(menuWin, 0, 0);
+    initialise(title, items);
 }
 
 Menu::~Menu() {
@@ -31,24 +13,7 @@ Menu::~Menu() {
     endwin();
 }
 
-void Menu::print_menu() {
-    wclear(menuWin);
-    box(menuWin, 0, 0);
-    int y = 0;
-    int x = (width - winTitle.length()) / 2; // Calculate the x position to center the text 
-    mvwprintw(menuWin, y, x, winTitle.c_str());
-    y = 2;
-    for(int i = 0; i < static_cast<int>(menuItems.size()); ++i) {
-        i == selectedItem ? wattron(menuWin, A_REVERSE) : wattroff(menuWin, A_REVERSE);
-        x = (width - menuItems.at(i).length()) / 2; // Calculate the x position to center the text
-        mvwprintw(menuWin, y, x, menuItems.at(i).c_str());
-        y += MENU_ITEM_HEIGHT_FACTOR;
-    }
-    wattroff(menuWin, A_REVERSE);
-    wrefresh(menuWin);
-}
-
-std::string Menu::menu_navigation() {
+std::string Menu::show() {
     int key;
     while(true) {
         print_menu();
@@ -100,4 +65,34 @@ int Menu::longest_menu_item() {
         }
     }
     return longest;
+}
+
+void Menu::initialise(std::string title, std::vector<std::string> items) {
+    initscr();
+    noecho();
+    curs_set(0);
+    menuItems = items;
+    selectedItem = 0;
+    winTitle = title;
+    calculate_window_dimensions();
+    menuWin = newwin(height, width, start_y, start_x);
+    keypad(menuWin, TRUE);
+    box(menuWin, 0, 0);
+}
+
+void Menu::print_menu() {
+    wclear(menuWin);
+    box(menuWin, 0, 0);
+    int y = 0;
+    int x = (width - winTitle.length()) / 2; // Calculate the x position to center the text 
+    mvwprintw(menuWin, y, x, winTitle.c_str());
+    y = 2;
+    for(int i = 0; i < static_cast<int>(menuItems.size()); ++i) {
+        i == selectedItem ? wattron(menuWin, A_REVERSE) : wattroff(menuWin, A_REVERSE);
+        x = (width - menuItems.at(i).length()) / 2; // Calculate the x position to center the text
+        mvwprintw(menuWin, y, x, menuItems.at(i).c_str());
+        y += MENU_ITEM_HEIGHT_FACTOR;
+    }
+    wattroff(menuWin, A_REVERSE);
+    wrefresh(menuWin);
 }

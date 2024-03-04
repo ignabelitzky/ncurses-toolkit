@@ -11,8 +11,7 @@ class Menu {
         Menu(std::vector<std::string> items);
         Menu(std::string title, std::vector<std::string> items);
         ~Menu();
-        void print_menu();
-        std::string menu_navigation();
+        std::string show();
     private:
         const int MENU_ITEM_HEIGHT_FACTOR = 2;
         const int MENU_ITEM_PADDING = 10;
@@ -23,6 +22,8 @@ class Menu {
         int height, width, start_y, start_x;
         void calculate_window_dimensions();
         int longest_menu_item();
+        void initialise(std::string title, std::vector<std::string> items);
+        void print_menu();
 };
 
 #endif
