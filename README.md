@@ -8,6 +8,7 @@ Welcome to the ncurses-toolkit for C++ repository! This project aims to provide 
 
 ## Features
 * **Menu Class:** Our toolkit includes a robust Menu class to kickstart your TUI development journey.
+* **Dialog Box Class:** Our Dialog Box Class provides a versatile solution for creating interactive dialogue boxes within your text-based user interface (TUI). 
 
 ## Getting started
 ### Prerequisites
@@ -27,6 +28,7 @@ git clone https://github.com/ignabelitzky/ncurses-toolkit.git
 2. Include the necessary header files in your C++ code:
 ```cpp
 #include "ncurses-toolkit/include/menu.hpp"
+#include "ncurses-toolkit/include/dialog_box.hpp"
 // Include other necessary headers for additional features
 ```
 
