@@ -5,6 +5,7 @@
 #include <string>
 #include <ncurses.h>
 #include <stdexcept>
+#include <sstream>
 
 class MessageBox {
     public:
@@ -16,9 +17,12 @@ class MessageBox {
         void initialize(std::string title, std::string message, std::vector<std::string> options);
         void calculate_window_dimensions();
         bool fit_options();
+        bool fit_message();
         int options_length();
         void print_dialog_box();
-        const int OPTIONS_PADDING = 5;
+        const int MESSAGE_PADDING = 2;
+        const int OPTIONS_HORIZONTAL_PADDING = 5;
+        const int OPTIONS_VERTICAL_PADDING = 1;
         WINDOW *messageBoxWin;
         std::string winTitle;
         std::string winMessage;
