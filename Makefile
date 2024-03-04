@@ -4,7 +4,7 @@ NCURSES_LIBS := -lncurses
 
 TARGET := demo
 
-SRC := misc/menu_demo.cpp src/menu.cpp
+SRC := src/menu.cpp src/message_box.cpp misc/mbox_demo.cpp
 OBJ := $(SRC:.cpp=.o)
 
 all: $(TARGET)
