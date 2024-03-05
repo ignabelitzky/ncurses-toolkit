@@ -9,6 +9,8 @@ Menu::Menu(std::string title, std::vector<std::string> items) {
 }
 
 Menu::~Menu() {
+    wclear(menuWin);
+    wrefresh(menuWin);
     delwin(menuWin);
     endwin();
 }

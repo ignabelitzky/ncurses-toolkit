@@ -22,6 +22,8 @@ MessageBox::MessageBox(std::string message, std::vector<std::string> options) {
 }
 
 MessageBox::~MessageBox() {
+    wclear(messageBoxWin);
+    wrefresh(messageBoxWin);
     delwin(messageBoxWin);
     endwin();
 }
